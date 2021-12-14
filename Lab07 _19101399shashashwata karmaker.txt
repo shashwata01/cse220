@@ -1,0 +1,28 @@
+public class Lab07 {
+    public static int [] KeyIndex(int[] a){
+        int temp1 = 0;
+        for(int i = 0; i <= a.length-1; i++){
+            for(int j = i+1; j <= a.length-1; j++){
+                if(a[i] > a[j]){
+                    temp1 = a[i];
+                }else{
+                    temp1 = a[j];
+                }
+            }
+        }
+        int []k = new int [temp1+1];
+        for(int i = 0; i <= a.length; i++){
+            int temp2 = 0;
+            temp2 = a[i];
+            k[temp2] = + 1;
+        }
+        return k;
+    }
+    
+    public static boolean Search(int val){
+        if(k[val] != 0){
+            return true;
+        }else{
+            return false;
+        }
+    }

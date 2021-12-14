@@ -1,0 +1,148 @@
+public class linklist_lab2 {
+    public class lab02 {
+        //task02-constructors
+        public class MyList {
+
+            public Node head;
+//1a
+
+            MyList()
+            {
+                Node head;
+            }
+//1b
+
+            public MyList(int[] a)
+            {
+                if (a.length == 0) {
+                    System.out.println("Array Can't be empty");
+                }
+                head = new Node(a[0], null);
+                Node tail = head;
+                for (int i = 1; i < a.length; i++) {
+                    Node temp = new Node(a[i], null);
+                    tail.next = temp;
+                    tail = temp;
+
+                }
+            }
+
+            //1c
+            public MyList(Node a)
+            {
+                head = a;
+                for (Node n = a; n != null; n = n.next) {
+                    head.next = n;
+                }
+            }
+            //2
+            void showList()
+            {
+                for(int i:list){
+                    System.out.print(i+" ");
+                }
+            }
+            //3
+            boolean isEmpty()
+            {
+                return (list.isEmpty());
+            }
+            //4
+            void clear()
+            {
+                list.clear();
+            }
+            //5
+            void insert(int newElement)
+            {
+                list.add(newElement);
+            }
+            //6
+            void insert(int newElement,int index)
+            {
+                list.add(index,newElement);
+            }
+            //7
+            int remove(int element)
+            {
+                return list.remove(element);
+            }
+            //task03
+            //1
+            public static int evenNumber(Node head)
+            {
+                Node m = new Node(null);
+                node m = m.head;
+                for (Node n = head; n != null; n = n.next) {
+                    if (n.element % 2 == 0) {
+                        m.element = n.element;
+                        m = m.next;
+                    }
+                }
+            }
+            //02
+            public static int checknumber(int element){
+                int a=1;
+                for(Node n=head;n!=null;n=n.next){
+                    if(n.element==element){
+                        System.out.println("true");
+                        a++;
+                        break;
+                    }
+                }
+
+
+                if(a==1){
+                    System.out.println("false");
+                }
+            }
+
+            //3
+            public Node reverseList()
+            {
+                Node revHead= new Node(head.element,null);
+                for(Node n=head.next;n!=null;n=n.next)
+                {
+                    Node node=new Node(n.element,null);
+                    node.next=revHead;
+                    revHead=node;
+                }
+                return revHead;
+            }
+            //6
+            public void rotateLeft()
+            {
+                Node oldHead=head;
+                head=head.next;
+                Node tail=head;
+                while(tail.next!=null){
+                    tail=tail.next;
+                }
+                tail.next=oldHead;
+                oldHead.next=null;
+            }
+            public void rotateRight()
+            {
+                Node temp =head;
+
+                while(temp.next.next!=null){
+                    temp=temp.next;
+                }
+                temp.next.next=head;
+                head=temp.next;
+                temp.next=null;
+
+            }
+
+        }
+        //task01
+        public class Node {
+
+            public int element;
+            public Node next;
+
+            public Node(int e, Node n) {
+                this.element = e;
+                this.next = n;
+            }
+        }

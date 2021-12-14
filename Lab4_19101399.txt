@@ -1,0 +1,97 @@
+import java.util.Scanner;
+public class shashwata{
+  public static void Input(){
+    String bored;
+    Scanner sc=new Scanner(System.in);
+    bored=sc.nextLine();
+  }
+  
+  public boolean Array(String z){
+    String bored=z;
+    int []n=new int [z.length()];
+    int p=0;
+    for(int i=0; i<z.length(); i++){
+      n[i] = z.charAt(i);
+    }
+    for(int k=0; k<n.length; k++){
+      for(int l=k+1; l<n.length;l++){
+        if(n[k] == '['){
+          if(n[l] == ')' ||n[l] == '}' ||n[l] == '['){
+            p++;
+          }else{
+            
+          }   
+        }else if(n[k] == '{'){
+          if(n[l] == ')' ||n[l] == '[' ||n[l] == ']'){
+            p++;
+          }else{
+            
+          }
+        }else if(n[k] == '('){
+          if(n[l] == '(' || n[l] == '{' ||n[l] ==  '}' ||n[l] ==  '[' || n[l] == ']'){
+            p++;
+          }else{
+            
+          }
+        }else{
+          
+        }
+      }
+      if(p==0){
+        return true;
+      }else{
+        return false;
+      }
+    }
+    return false;
+  }
+  public boolean List(String w){
+    String pxl = w;
+    int []h=new int[w.length()];
+    int u= 0;
+    for(int i=0; i<w.length(); i++){
+      h[i] = w.charAt(i);
+    }
+    Node head = null;
+    Node tail = null;
+    for(int i=0; i<h.length; i++){
+      Node newNode = new Node(h[i], null);
+      if(head == null){
+        head = newNode;
+        tail = head;
+      }else{
+        tail.next = newNode;
+        tail = newNode;
+      }
+    }
+    for(Node t = head; t!= null; t= t.next){
+      for(Node y= t.next; y!= null; y=y.next){
+        if(t.element == '['){
+          if(y.element == ')'|| y.element ==  '}'||y.element ==   '['){
+            u++;
+          }else{
+            
+          }   
+        }else if(t.element == '{'){
+          if(y.element == ')' ||y.element ==  '[' ||y.element ==  ']'){
+            u++;
+          }else{
+            
+          }
+        }else if(t.element == '('){
+          if(y.element == '(' || y.element == '{' ||y.element ==  '}' || y.element == '[' ||y.element ==  ']'){
+            u++;
+          }else{
+            
+          }
+        }else{
+          
+        }
+      }
+      if(u==0){
+        return true;
+      }else{
+        return false;
+      }
+  }
+}

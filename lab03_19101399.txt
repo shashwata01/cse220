@@ -1,0 +1,130 @@
+public class Lab03 {
+
+//task 01-
+    //01
+    DoublyList()
+   {
+    Node head;
+   }
+   public DoublyList(int[] a){
+      if(a.length==0){
+          System.out.println("Array Can't be empty");
+      }
+      head = new Node(a[0],null, null);
+       head.next = head.prev = head;
+       for(int i=1; i < a.length; i++){
+           Node n = new Node ( a[i], null, null);
+           n.next = head.next;
+           n.prev = head;
+           head.next = n;
+           n.next.prev = n;
+
+       }
+   }
+}
+//task 02
+     public class Node{
+    int element;
+    Node next;
+    Node prev;
+   public Node( int e,Node n, Node p){
+       element = e;
+       next = n;
+       prev = p;
+   }
+}
+
+//task 02-
+
+1.
+public static void DoublyList(int [] a,Node head){
+for(int i=0;i<a.length;i++){
+for(Node n=head.next;n.next!=head;n=n.next){
+	n=a[i];
+	}
+	}
+}
+
+2.
+public static void showList(Node head){
+int z=0;
+int i=0;
+for(Node n=head.next;n.next!=head;n=n.next){
+	if(n.element==null){
+	i++;
+	}
+	System.out.println(n.element);
+	z++;
+	}
+	if(i==z){
+	System.out.println(“Empty list”);
+	}
+}
+
+3.
+public static void insert (Node head,newElement){
+for(Node n=head.next;n.next!=head;n=n.next){
+	if(n.next==head){
+	if(n.element==newElement){
+	System.out.println("the key already exists");	
+	}
+	else{
+	n.element=newElement;
+	}
+	}
+	}
+}
+
+4.
+public static void insert (Node head,newElement,index){
+if(index<0 || index>size){
+throw newExceptoionOutOfBounds;
+}
+int i=0;
+for(Node n=head.next;n.next!=head;n=n.next){
+	if(index==i){
+	if(n.element==newElement){
+	System.out.println("the key already exists");	
+	}
+	else{
+	n.element=newElement;
+	}
+	i++;
+	}
+	}
+}
+
+5.
+public static void remove(Node head,int index){
+if(index<0 || index>size){
+throw newExceptoionOutOfBounds;
+}
+int i=0;
+for(Node n=head.next;n.next!=head;n=n.next){
+	if(index==i){
+	Node p = n.prev;
+	Node q = n.next;
+	p.next = q;
+	q.prev = p;
+	n.next = n.prev = null;
+	n.element = null;
+	}
+	i++;
+	}
+}
+
+6.
+public static int removeKey(int deletekey){
+if(index<0 || index>size){
+throw newExceptoionOutOfBounds;
+}
+int i=0;
+for(Node n=head.next;n.next!=head;n=n.next){
+	if(deletekey==i){
+	int z=n.element;
+	n.element=null;
+	}
+	i++;
+	}
+	return z;
+}

@@ -1,0 +1,138 @@
+public class NewClass2 {
+    public static void main(String[] args) {
+        for (int i = 0; i < 10; i++) {
+            System.out.println("i = "+i);
+            for (int j = 0; j < 10; j++) {
+                System.out.print(j);
+            }
+        }
+    }
+    
+}
+
+
+1. public static void selectionSort(int[] data, int size, int key){
+        if (key == size)
+           return;
+        int j = minIndex(data, key, size-1);
+        if (j != key){
+           int tmp = data[j];
+           data[j] = data[key];
+           data[key] = tmp;
+        }
+        selectionSort(data, size, key + 1);
+    }
+
+2. public static void insertionSort(int data[], int x){
+       if (x <= 1)
+            return;
+        insertionSort( data, x-1 );
+        int k = data[x-1];
+        int j = x-2;
+        while (j >= 0 && data[j] > k)
+        {
+            data[j+1] = data[j];
+            j--;
+        }
+        data[j+1] = k;
+    }
+
+3. import java.util.Scanner;
+public class BubbleSort{
+  public static void main(String[]args){
+    Scanner sc= new Scanner(System.in);
+    int[]arr= new int[5];
+    for(int i=0; i<arr.length; i++){
+      arr[i]=sc.nextInt();
+    }
+    bubbleSort(arr, arr.length);
+    for(int i=0; i<arr.length; i++){
+      System.out.print(arr[i]+" ");
+    }
+  }
+  static void bubbleSort(int arr[], int n) { 
+    // Base case 
+    if (n == 1){ 
+      return;
+    }
+    for (int i=0; i<n-1; i++){ 
+      if (arr[i] > arr[i+1]) {  
+        int temp = arr[i]; 
+        arr[i] = arr[i+1]; 
+        arr[i+1] = temp; 
+      } 
+    }
+    bubbleSort(arr, n-1); 
+  }
+}
+
+
+
+4. public static void selectionSort(Node head) {
+
+if (head == null || head.next == null)
+
+for (Node n = head; n.next != null; n = n.next) {
+
+	Node minNode = n;
+	for (Node p = n.next; p != null; p = p.next) {
+		if (((Comparable) p.element).compareTo(minNode.element) < 0)
+		minNode = p;
+		if (n != minNode) {
+		Object tmp = n.element;
+		n.element = minNode.element;
+		minNode.element = tmp;
+		}
+	}
+}
+
+5. static Node insertionSort(Node head, Node x){ 
+    Node n;  
+    if (head== null) 
+        head=x;  
+    else if ((head).data >= x.data)
+    { 
+        x.next = head; 
+        x.next.prev = x; 
+        head = x; 
+    } 
+    else
+    { 
+    	n= head; 
+        while (n.next != null && n.next.data < x.data) 
+            n = n.next; 
+        x.next = n.next; 
+        if (n.next != null) 
+            x.next.prev = x; 
+        n.next = x; 
+        x.prev = n; 
+    } 
+    return head;
+} 
+
+
+6. int recursiveBinarySearch(int data[], int i,int r, int x){
+        if (r >= i && i<data.length-1) {
+	    int mid = i + (r - l) / 2;
+            if (data[mid] == x)
+                return mid;
+            if (data[mid] > x)
+                return recursiveBinarySearch(data, i, mid - 1, x);
+            return recursiveBinarySearch(data, mid + 1, r, x);
+        } 
+        return -1;
+    }
+
+7. public static int MemoizationFactorial(int n){
+    int [] fac=new int[1000];
+    if(n==1){
+     return 1;
+    }
+    if(fac[n]!=1){
+      return fac[n];
+    }
+    else{
+      fac[n]=n*fac[n-1];
+      return fac[n];
+    }
+  }
